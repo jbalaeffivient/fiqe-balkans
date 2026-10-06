@@ -40,4 +40,8 @@ next-env.d.ts
 /dist/
 /.wrangler/
 /outputs/
-/work/
+# fonts used only for local PDF offer generation
+/fonts/offer/Arial-Unicode.ttf
+/fonts/_*.pdf
+/fonts/offer/Noto*.ttf
+
