@@ -4,7 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { trips } from "../../data/trips";
+import { tripOfferUrl, trips } from "../../data/trips";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 const viewport = { once: true, amount: 0.18, margin: "0px 0px -6% 0px" } as const;
@@ -54,6 +54,9 @@ export default function TripPage() {
   }
 
   const formatLabel = trip.title.toLowerCase().includes("self") ? "Self guided" : "Guided";
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
+  const offerUrl = tripOfferUrl(slug);
+  const offerFileName = `${slug}-offer.pdf`;
 
   return (
     <main className="trip-page">
@@ -134,6 +137,15 @@ export default function TripPage() {
           ))}
           <div className="trip-season"><span>Best season</span><b>{trip.season}</b></div>
           {trip.note && <p className="trip-note">{trip.note}</p>}
+          <a
+            className="button button--dark trip-offer-btn"
+            href={offerUrl}
+            download={offerFileName}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download PDF offer <Arrow />
+          </a>
         </Reveal>
       </section>
 
@@ -156,6 +168,25 @@ export default function TripPage() {
           </Reveal>
         </section>
       )}
+
+      <section className="trip-offer-strip section-pad">
+        <Reveal className="trip-offer-card">
+          <div>
+            <p className="eyebrow">Share this journey</p>
+            <h2>Full trip offer <em>PDF.</em></h2>
+            <p>A branded, printable offer with itinerary, inclusions, gear lists and photos—ready to send to friends or keep for planning.</p>
+          </div>
+          <a
+            className="button button--dark"
+            href={offerUrl}
+            download={offerFileName}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download PDF offer <Arrow />
+          </a>
+        </Reveal>
+      </section>
 
       <section className="trip-highlights section-pad">
         <Reveal className="trip-highlights-image" y={36}>
@@ -336,6 +367,15 @@ export default function TripPage() {
         <p>Tell our team when you would like to travel. Tell us your preferred dates and group size—we usually reply within a few hours.</p>
         <div>
           <a className="button button--lime" href={`mailto:hello@balkanpeaksadv.com?subject=${encodeURIComponent(`Dates for ${trip.title}`)}`}>Check available dates <Arrow /></a>
+          <a
+            className="button button--ghost-light trip-offer-btn"
+            href={offerUrl}
+            download={offerFileName}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download PDF offer <Arrow />
+          </a>
           <Link className="text-link light" href="/#tours"><Arrow back /> Compare journeys</Link>
         </div>
       </Reveal>

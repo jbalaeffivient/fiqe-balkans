@@ -34,6 +34,11 @@ export type Trip = {
   note?: string;
 };
 
+/** Public path to the branded PDF offer for a trip slug. */
+export function tripOfferUrl(slug: string) {
+  return `/offers/${slug}-offer.pdf`;
+}
+
 const guidedFaq = [
   {
     q: "Where do I join the tour, and which airport should I use?",

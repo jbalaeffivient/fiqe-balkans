@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-10-06T12:32:51.647Z",
+  "offers": [
+    {
+      "slug": "peaks-of-the-balkans",
+      "file": "/offers/peaks-of-the-balkans-offer.pdf",
+      "pages": 10
+    },
+    {
+      "slug": "peaks-of-the-balkans-7-days",
+      "file": "/offers/peaks-of-the-balkans-7-days-offer.pdf",
+      "pages": 9
+    },
+    {
+      "slug": "peaks-of-the-balkans-self-guided",
+      "file": "/offers/peaks-of-the-balkans-self-guided-offer.pdf",
+      "pages": 10
+    },
+    {
+      "slug": "via-dinarica-kosovo",
+      "file": "/offers/via-dinarica-kosovo-offer.pdf",
+      "pages": 8
+    }
+  ]
+}
